@@ -16,7 +16,7 @@ sudo apt-get update -y
 sudo apt-get install -y apache2
 
 # template
-echo "##### Generating site's filesystems #####"
+echo "##### Generating sites filesystems #####"
 sudo bash $hostDir/scripts/generate_vhost.sh $domain 80
 
 # php
