@@ -3,6 +3,7 @@ docRoot=/var/www
 
 htmlPart=html/$1
 logPart=log/$1
+port=$2
 
 hostDir=/vagrant
 hostHtml=$hostDir/$htmlPart
@@ -13,8 +14,6 @@ logPath=$docRoot/$logPart
 sitesComon=$hostDir/sites_common
 
 configFile=$1.conf
-
-echo "Started files generation ######################################################"
 
 mkdir -p $hostHtml
 mkdir -p $hostLog

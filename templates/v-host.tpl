@@ -1,4 +1,4 @@
-<VirtualHost *:80>
+<VirtualHost *:$port>
     ServerName $1
     DocumentRoot $htmlPath
     ErrorLog $logPath/error.log

@@ -16,8 +16,8 @@ sudo apt-get update -y
 sudo apt-get install -y apache2
 
 # template
-echo "Generating site's filesystems ###################################################"
-sudo bash $hostDir/scripts/generate_vhost.sh $domain
+echo "##### Generating site's filesystems #####"
+sudo bash $hostDir/scripts/generate_vhost.sh $domain 80
 
 # php
 sudo add-apt-repository -y ppa:ondrej/php
