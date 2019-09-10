@@ -1,7 +1,6 @@
 #!/bin/bash
 
 docRoot=/var/www
-
 htmlPart=html/$1
 logPart=log/$1
 port=$2
