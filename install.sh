@@ -14,6 +14,7 @@ sudo apt-get update -y
 
 # apache
 sudo apt-get install -y apache2
+sudo cp $hostDir/common_conf/apache2.conf /etc/apache2/
 
 # template
 echo "##### Generating sites filesystems #####"

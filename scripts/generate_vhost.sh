@@ -11,16 +11,15 @@ hostLog=$hostDir/$logPart
 
 htmlPath=$docRoot/$htmlPart
 logPath=$docRoot/$logPart
-sitesComon=$hostDir/sites_common
 
 configFile=$1.conf
 
 mkdir -p $hostHtml
 mkdir -p $hostLog
 
-cp $sitesComon/index.php	$hostHtml
-cp $sitesComon/access.log	$hostLog
-cp $sitesComon/error.log	$hostLog
+echo '<?php phpinfo(); ?>' > $hostHtml/index.php
+echo '' > $hostLog/access.log
+echo '' > $hostLog/error.log
 
 eval "echo \"$(cat /vagrant/templates/v-host.tpl)\"" > /etc/apache2/sites-available/$configFile
 
