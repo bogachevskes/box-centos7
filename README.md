@@ -5,7 +5,7 @@
 * Ubuntu18.04
 * php5.6
 * memcache
-* MariaDB 10.4
+* MariaDB10.4
 
 ### Установка
 Для работы необходим Vagrant ^2.5.5 и VirtualBox ^6.0.12
