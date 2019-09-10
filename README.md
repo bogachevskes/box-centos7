@@ -20,7 +20,7 @@ $ sudo mysql -u root
 mysql> DROP USER 'root'@'localhost'; CREATE USER 'root'@'%' IDENTIFIED BY '';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 mysql> FLUSH PRIVILEGES;
-$ exit
+mysql> exit
 $ sudo service mysqld restart
 ```
 Добавление виртуального хоста
