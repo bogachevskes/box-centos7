@@ -1,4 +1,5 @@
 #!/bin/bash
+
 domain=virtual-example.com
 docRoot=/var/www
 hostDir=/vagrant
