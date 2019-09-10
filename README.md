@@ -4,7 +4,7 @@
 ### Сборка
 * Ubuntu18.04
 * php5.6
-* memcache
+* memcached
 * MariaDB10.4
 
 ### Установка

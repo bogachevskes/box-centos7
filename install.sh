@@ -26,7 +26,12 @@ sudo apt-get update -y
 sudo apt-get install -y php5.6 php-dev php-pear libapache2-mod-php
 php -v
 # extensions
-sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-imagick $php-memcached $php-soap $php-tidy $php-xmlrpc $php-zip
+sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-imagick $php-memcached $php-memcache $php-soap $php-tidy $php-xmlrpc $php-zip
+
+# memcached
+sudo apt-get -y install memcached
+sudo service memcached start
+sudo service apache2 restart
 
 # mariaDB
 sudo apt-get install -y software-properties-common
