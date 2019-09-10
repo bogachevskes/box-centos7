@@ -8,7 +8,7 @@
 * MariaDB10.4
 
 ### Установка
-Для работы необходим Vagrant ^2.5.5 и VirtualBox ^6.0.12
+Для работы необходим Vagrant ^2.5.5 и VirtualBox ^6.0.12  
 Так же, для корректной работы требуется установить vagrant-vbguest
 ```sh
 $ vagrant plugin install vagrant-vbguest
