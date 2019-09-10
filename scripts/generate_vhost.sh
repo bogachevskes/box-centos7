@@ -1,4 +1,5 @@
 #!/bin/bash
+
 docRoot=/var/www
 
 htmlPart=html/$1
