@@ -3,7 +3,6 @@
 docRoot=/var/www
 htmlPart=html/$1
 logPart=log/$1
-port=$2
 
 hostDir=/vagrant
 hostHtml=$hostDir/$htmlPart
