@@ -3,6 +3,7 @@
 docRoot=/var/www
 htmlPart=html/$1
 logPart=log/$1
+apacheUser=apache:apache
 
 hostDir=/vagrant
 hostHtml=$hostDir/$htmlPart
@@ -10,8 +11,10 @@ hostLog=$hostDir/$logPart
 
 htmlPath=$docRoot/$htmlPart
 logPath=$docRoot/$logPart
-
+httpdPath=/etc/httpd
+sitesAvailablePath=$httpdPath/sites-available
 configFile=$1.conf
+siteConfig=$sitesAvailablePath/$configFile
 hostHtmlPublicPath=$hostHtml/$3
 
 mkdir -p $hostHtmlPublicPath
@@ -21,9 +24,9 @@ echo '<?php phpinfo(); ?>' > $hostHtmlPublicPath/index.php
 echo '' > $hostLog/access.log
 echo '' > $hostLog/error.log
 
-eval "echo \"$(cat /vagrant/templates/v-host.tpl)\"" > /etc/apache2/sites-available/$configFile
-
-a2ensite $configFile
-chown $USER:$USER -R $htmlPath
-chown $USER:$USER -R $logPath
-service apache2 restart
+eval "echo \"$(cat /vagrant/templates/v-host.tpl)\"" > $siteConfig
+sudo ln -s $siteConfig $httpdPath/sites-enabled/$configFile
+sudo chown $apacheUser -R $htmlPath
+sudo chown $apacheUser -R $logPath
+sudo setenforce 0
+sudo service httpd restart

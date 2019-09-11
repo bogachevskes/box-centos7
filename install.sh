@@ -3,25 +3,30 @@
 domain=virtual-example.com
 docRoot=/var/www
 hostDir=/vagrant
-php=php5.6
-publicPath="web"
+httpdPath=/etc/httpd
+php=php
+publicPath="public"
+commonPath=$hostDir/common
 vhScript=$hostDir/scripts/generate_vhost.sh
 
-sudo mkdir		$docRoot
-sudo mkdir -p	$hostDir/html
-sudo mkdir -p	$hostDir/log
-sudo ln -s		$hostDir/html $docRoot/html
-sudo ln -s		$hostDir/log $docRoot/log
+sudo mkdir $docRoot
+sudo mkdir -p $hostDir/html
+sudo mkdir -p $hostDir/log
+sudo ln -s $hostDir/html $docRoot/html
+sudo ln -s $hostDir/log $docRoot/log
 
-sudo apt-get update -y
+sudo yum update -y
 
 # common utils
-sudo apt-get install -y dos2unix
+sudo cp $commonPath/repo/dos2unix-6.0.3-7.el7.src.rpm /etc/yum.repos.d/
+sudo yum install -y epel-release htop nano dos2unix
 
 # apache
-sudo apt-get install -y apache2
-sudo cp $hostDir/common/conf/apache2.conf /etc/apache2/
-sudo a2enmod rewrite
+sudo yum update -y
+sudo yum install -y httpd mod_fcgid
+sudo cp $commonPath/conf/httpd.conf $httpdPath/conf/httpd.conf
+sudo mkdir $httpdPath/sites-available
+sudo mkdir $httpdPath/sites-enabled
 
 # template
 echo "##### Generating sites filesystems #####"
@@ -29,24 +34,28 @@ sudo dos2unix $vhScript
 sudo bash $vhScript $domain 80 $publicPath $php
 
 # php
-sudo add-apt-repository -y ppa:ondrej/php
-sudo apt-get update -y
-sudo apt-get install -y $php $php-fpm php-dev php-pear libapache2-mod-php libapache2-mod-fcgid
+sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum -y update
+sudo yum-config-manager --enable remi-php71
+sudo yum -y install $php
 php -v
 # extensions
-sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-imagick $php-memcached $php-memcache $php-soap $php-tidy $php-xmlrpc $php-zip
+sudo yum --enablerepo=remi install -y $php-opcache $php-fpm $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-pdo_odbc $php-pdo_pgsql $php-redis $php-redis $php-soap $php-tidy $php-xmlrpc $php-zip
+# imagick
+sudo yum install -y gcc php-devel php-pear ImageMagick ImageMagick-devel
+sudo pecl install imagick
+sudo cp $commonPath/ini/imagick.ini /etc/php.d/
+sudo service httpd restart
 
-# memcached
-sudo apt-get -y install memcached
-sudo service memcached start
+# redis
+sudo yum install -y redis
+sudo systemctl start redis
 
 # mariaDB
-sudo apt-get install -y software-properties-common
-sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-sudo add-apt-repository -y "deb [arch=amd64,arm64,ppc64el] http://mariadb.mirror.liquidtelecom.com/repo/10.4/ubuntu $(lsb_release -cs) main"
-sudo apt update -y
-sudo apt install -y mariadb-server
+sudo cp $commonPath/repo/mariadb.repo /etc/yum.repos.d/
+sudo yum install -y MariaDB-server
+sudo systemctl start mariadb
 
 # fast-cgi
-sudo a2enmod actions alias proxy_fcgi fcgid
-sudo service apache2 restart
+#sudo a2enmod actions alias proxy_fcgi fcgid
+#sudo service apache2 restart
