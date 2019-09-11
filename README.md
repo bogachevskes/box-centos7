@@ -8,7 +8,7 @@
 * MariaDB10.4
 
 ### Установка
-Для работы необходим Vagrant ^2.5.5 и VirtualBox ^6.0.12  
+Для работы необходим Vagrant ^2.2.5 и VirtualBox ^6.0.12  
 Так же, для корректной работы требуется установить vagrant-vbguest
 ```sh
 $ vagrant plugin install vagrant-vbguest
@@ -23,8 +23,8 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $ sudo service mysqld restart
 ```
-Добавление виртуального хоста
+Добавление виртуального хоста | домен порт публичная папка
 ```sh
 $ vagrant ssh
-$ sudo bash /vagrant/scripts/generate_vhost.sh host.example.com
+$ sudo bash /vagrant/scripts/generate_vhost.sh host.example.com 80 "public"
 ```

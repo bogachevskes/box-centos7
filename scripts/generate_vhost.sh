@@ -13,11 +13,12 @@ htmlPath=$docRoot/$htmlPart
 logPath=$docRoot/$logPart
 
 configFile=$1.conf
+hostHtmlPublicPath=$hostHtml/$3
 
-mkdir -p $hostHtml
+mkdir -p $hostHtmlPublicPath
 mkdir -p $hostLog
 
-echo '<?php phpinfo(); ?>' > $hostHtml/index.php
+echo '<?php phpinfo(); ?>' > $hostHtmlPublicPath/index.php
 echo '' > $hostLog/access.log
 echo '' > $hostLog/error.log
 

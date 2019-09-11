@@ -4,6 +4,7 @@ domain=virtual-example.com
 docRoot=/var/www
 hostDir=/vagrant
 php=php5.6
+vhScript=$hostDir/scripts/generate_vhost.sh
 
 sudo mkdir		$docRoot
 sudo mkdir -p	$hostDir/html
@@ -13,13 +14,17 @@ sudo ln -s		$hostDir/log $docRoot/log
 
 sudo apt-get update -y
 
+# common utils
+sudo apt-get install -y dos2unix
+
 # apache
 sudo apt-get install -y apache2
-sudo cp $hostDir/common_conf/apache2.conf /etc/apache2/
+sudo cp $hostDir/common/conf/apache2.conf /etc/apache2/
 
 # template
 echo "##### Generating sites filesystems #####"
-sudo bash $hostDir/scripts/generate_vhost.sh $domain 80
+sudo dos2unix $vhScript
+sudo bash $vhScript $domain 80 "web"
 
 # php
 sudo add-apt-repository -y ppa:ondrej/php
