@@ -20,6 +20,7 @@ sudo apt-get install -y dos2unix
 # apache
 sudo apt-get install -y apache2
 sudo cp $hostDir/common/conf/apache2.conf /etc/apache2/
+sudo a2enmod rewrite
 
 # template
 echo "##### Generating sites filesystems #####"
