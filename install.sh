@@ -25,12 +25,12 @@ sudo a2enmod rewrite
 # template
 echo "##### Generating sites filesystems #####"
 sudo dos2unix $vhScript
-sudo bash $vhScript $domain 80 "web"
+sudo bash $vhScript $domain 80 "web" "5.6"
 
 # php
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update -y
-sudo apt-get install -y php5.6 php-dev php-pear libapache2-mod-php
+sudo apt-get install -y $php $php-fpm php-dev php-pear libapache2-mod-php libapache2-mod-fcgid
 php -v
 # extensions
 sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-imagick $php-memcached $php-memcache $php-soap $php-tidy $php-xmlrpc $php-zip
@@ -38,7 +38,6 @@ sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $ph
 # memcached
 sudo apt-get -y install memcached
 sudo service memcached start
-sudo service apache2 restart
 
 # mariaDB
 sudo apt-get install -y software-properties-common
@@ -46,3 +45,7 @@ sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F2
 sudo add-apt-repository -y "deb [arch=amd64,arm64,ppc64el] http://mariadb.mirror.liquidtelecom.com/repo/10.4/ubuntu $(lsb_release -cs) main"
 sudo apt update -y
 sudo apt install -y mariadb-server
+
+# fast-cgi
+sudo a2enmod actions alias proxy_fcgi fcgid
+sudo service apache2 restart

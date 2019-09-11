@@ -4,6 +4,7 @@
 ### Сборка
 * Ubuntu18.04
 * php5.6
+* Fast-cgi
 * memcached
 * MariaDB10.4
 
