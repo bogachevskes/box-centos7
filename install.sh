@@ -4,6 +4,7 @@ domain=virtual-example.com
 docRoot=/var/www
 hostDir=/vagrant
 php=php5.6
+publicPath="web"
 vhScript=$hostDir/scripts/generate_vhost.sh
 
 sudo mkdir		$docRoot
@@ -25,7 +26,7 @@ sudo a2enmod rewrite
 # template
 echo "##### Generating sites filesystems #####"
 sudo dos2unix $vhScript
-sudo bash $vhScript $domain 80 "web" "5.6"
+sudo bash $vhScript $domain 80 $publicPath $php
 
 # php
 sudo add-apt-repository -y ppa:ondrej/php
