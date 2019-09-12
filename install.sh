@@ -34,7 +34,7 @@ sudo apt-get update -y
 sudo apt-get install -y $php $php-fpm php-dev php-pear libapache2-mod-php libapache2-mod-fcgid
 php -v
 # extensions
-sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-imagick $php-memcached $php-memcache $php-soap $php-tidy $php-xmlrpc $php-zip
+sudo apt-get install -y $php-intl $php-gmp $php-imap $php-ldap $php-mcrypt $php-mbstring $php-mysqli $php-imagick $php-memcached $php-memcache $php-soap $php-tidy $php-xmlrpc $php-zip
 
 # memcached
 sudo apt-get -y install memcached
