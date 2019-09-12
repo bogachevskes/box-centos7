@@ -5,7 +5,7 @@ docRoot=/var/www
 hostDir=/vagrant
 httpdPath=/etc/httpd
 php=php
-publicPath="public"
+publicPath="/public"
 commonPath=$hostDir/common
 vhScript=$hostDir/scripts/generate_vhost.sh
 
@@ -40,7 +40,7 @@ sudo yum-config-manager --enable remi-php71
 sudo yum -y install $php
 php -v
 # extensions
-sudo yum --enablerepo=remi install -y $php-opcache $php-fpm $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-pdo_odbc $php-pdo_pgsql $php-redis $php-redis $php-soap $php-tidy $php-xmlrpc $php-zip
+sudo yum --enablerepo=remi install -y $php-opcache $php-mcrypt $php-fpm $php-intl $php-gmp $php-imap $php-ldap $php-mbstring $php-mysqli $php-pdo_odbc $php-pdo_pgsql $php-redis $php-redis $php-soap $php-tidy $php-xmlrpc $php-zip
 # imagick
 sudo yum install -y gcc php-devel php-pear ImageMagick ImageMagick-devel
 sudo pecl install imagick
