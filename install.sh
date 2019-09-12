@@ -19,7 +19,7 @@ sudo yum update -y
 
 # common utils
 sudo cp $commonPath/repo/dos2unix-6.0.3-7.el7.src.rpm /etc/yum.repos.d/
-sudo yum install -y epel-release htop nano dos2unix
+sudo yum install -y epel-release htop nano dos2unix net-tools
 
 # apache
 sudo yum update -y
@@ -45,7 +45,6 @@ sudo yum --enablerepo=remi install -y $php-opcache $php-mcrypt $php-fpm $php-int
 sudo yum install -y gcc php-devel php-pear ImageMagick ImageMagick-devel
 sudo pecl install imagick
 sudo cp $commonPath/ini/imagick.ini /etc/php.d/
-sudo service httpd restart
 
 # redis
 sudo yum install -y redis
@@ -57,5 +56,8 @@ sudo yum install -y MariaDB-server
 sudo systemctl start mariadb
 
 # fast-cgi
-#sudo a2enmod actions alias proxy_fcgi fcgid
-#sudo service apache2 restart
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+sudo cp /vagrant/common/conf/www.conf /etc/php-fpm.d/
+sudo service php-fpm restart
+sudo service httpd restart

@@ -1,11 +1,11 @@
-# Ubuntu18.04 Box
+# CentOS 7 Box
 > Host machine - Windows
 
 ### Сборка
-* Ubuntu18.04
-* php5.6
+* CentOS 7
+* php7.1
 * Fast-cgi
-* memcached
+* Redis
 * MariaDB10.4
 
 ### Установка
