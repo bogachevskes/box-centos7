@@ -4,7 +4,7 @@ domain=virtual-example.com
 docRoot=/var/www
 hostDir=/vagrant
 php=php5.6
-publicPath="web"
+publicPath="/web"
 vhScript=$hostDir/scripts/generate_vhost.sh
 
 sudo mkdir		$docRoot
