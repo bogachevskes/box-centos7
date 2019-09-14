@@ -7,3 +7,5 @@ sudo service mysqld restart
 echo "Mysql restarted"
 sudo service php-fpm restart
 echo "php-fpm restarted"
+sudo service redis restart
+echo "Redis restarted"
