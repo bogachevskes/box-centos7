@@ -1,6 +1,6 @@
 <VirtualHost *:$2>
     ServerName $1
-    DocumentRoot $htmlPath$3
+    DocumentRoot $hostHtmlPublicPath
     ErrorLog $logPath/error.log
     CustomLog $logPath/access.log combined
 

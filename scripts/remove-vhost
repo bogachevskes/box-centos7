@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z ${1} ]
+then
+echo "Set virtual host"
+exit
+fi
+
+httpdPath=/etc/httpd
+sharePath=/vagrant
+config=$1.conf
+
+sudo service httpd stop
+
+sudo rm $httpdPath/sites-enabled/$config
+sudo rm $httpdPath/sites-available/$config
+sudo rm -rf $sharePath/html/$1
+sudo rm -rf $sharePath/log/$1
+
+sudo server-restart
+

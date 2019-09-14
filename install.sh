@@ -6,25 +6,25 @@ binPath=/bin
 hostDir=/vagrant
 httpdPath=/etc/httpd
 php=php
-publicPath="/public"
+publicPath="public"
 commonPath=$hostDir/common
-vhGenerator=generate-vhost
-serverRestarter=server-restart
 scriptPath=$hostDir/scripts
-vhScript=$scriptPath/$vhGenerator
-restartScriptPath=$scriptPath/$serverRestarter
+vhGenerator=generate-vhost
+vhRemover=remove-vhost
+serverRestarter=server-restart
 
 sudo mkdir $docRoot
 sudo mkdir -p $hostDir/html
 sudo mkdir -p $hostDir/log
 sudo ln -s $hostDir/html $docRoot/html
 sudo ln -s $hostDir/log $docRoot/log
-sudo dos2unix $vhScript
-sudo dos2unix $restartScriptPath
-sudo cp $vhScript $binPath
-sudo cp $restartScriptPath $binPath
-sudo chmod u+x $vhScript
-sudo chmod u+x $restartScriptPath
+sudo cp $scriptPath $binPath
+sudo dos2unix $binPath/$vhGenerator
+sudo dos2unix $scriptPath/$vhRemover
+sudo dos2unix $binPath/$serverRestarter
+sudo chmod u+x $binPath/$vhGenerator
+sudo chmod u+x $binPath/$serverRestarter
+sudo chmod u+x $binPath/$serverRestarter
 
 sudo yum update -y
 

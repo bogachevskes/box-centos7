@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo setenforce 0
 sudo service httpd restart
 echo "Apache restarted"
 sudo service mysqld restart

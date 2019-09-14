@@ -17,7 +17,8 @@ configFile=$1.conf
 siteConfig=$sitesAvailablePath/$configFile
 hostHtmlPublicPath=$hostHtml/$3
 
-if [ -z ${4} ] then
+if [ -z ${4} ]
+then
     php=php
 else
     php=$4
@@ -35,4 +36,4 @@ sudo ln -s $siteConfig $httpdPath/sites-enabled/$configFile
 sudo chown $apacheUser -R $htmlPath
 sudo chown $apacheUser -R $logPath
 sudo setenforce 0
-sudo service httpd restart
+sudo server-restart
