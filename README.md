@@ -24,8 +24,8 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $ sudo service mysqld restart
 ```
-Добавление виртуального хоста | домен порт публичная папка
+Добавление виртуального хоста | домен | порт | публичная папка | php cli - по умолчанию php7.1
 ```sh
 $ vagrant ssh
-$ sudo bash /vagrant/scripts/generate_vhost.sh host.example.com 80 "public" "php7.1"
+$ sudo generate-vhost host.example.com 80 "public"
 ```

@@ -5,7 +5,7 @@
     CustomLog $logPath/access.log combined
 
     <FilesMatch \.php$>
-        SetHandler proxy:unix:/var/run/php-fpm/$4-fpm.sock|fcgi://localhost
+        SetHandler proxy:unix:/var/run/php-fpm/$php-fpm.sock|fcgi://localhost
     </FilesMatch>
 
 </VirtualHost>

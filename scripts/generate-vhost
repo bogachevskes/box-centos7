@@ -17,6 +17,12 @@ configFile=$1.conf
 siteConfig=$sitesAvailablePath/$configFile
 hostHtmlPublicPath=$hostHtml/$3
 
+if [ -z ${4} ] then
+    php=php
+else
+    php=$4
+fi
+
 mkdir -p $hostHtmlPublicPath
 mkdir -p $hostLog
 

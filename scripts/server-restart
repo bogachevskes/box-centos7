@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo service httpd restart
+echo "Apache restarted"
+sudo service mysqld restart
+echo "Mysql restarted"
+sudo service php-fpm restart
+echo "php-fpm restarted"

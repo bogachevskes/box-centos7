@@ -2,18 +2,28 @@
 
 domain=virtual-example.com
 docRoot=/var/www
+binPath=/bin
 hostDir=/vagrant
 httpdPath=/etc/httpd
 php=php
 publicPath="/public"
 commonPath=$hostDir/common
-vhScript=$hostDir/scripts/generate_vhost.sh
+vhGenerator=generate-vhost
+scriptPath=$hostDir/scripts
+vhScript=$scriptPath/$vhGenerator
+restartScript=$scriptPath/server-restart
 
 sudo mkdir $docRoot
 sudo mkdir -p $hostDir/html
 sudo mkdir -p $hostDir/log
 sudo ln -s $hostDir/html $docRoot/html
 sudo ln -s $hostDir/log $docRoot/log
+sudo dos2unix $vhScript
+sudo dos2unix $restartScript
+sudo cp $vhScript $binPath
+sudo cp $restartScript $binPath
+sudo chmod u+x $vhScript
+sudo chmod u+x $restartScript
 
 sudo yum update -y
 
@@ -30,8 +40,7 @@ sudo mkdir $httpdPath/sites-enabled
 
 # template
 echo "##### Generating sites filesystems #####"
-sudo dos2unix $vhScript
-sudo bash $vhScript $domain 80 $publicPath $php
+sudo $vhGenerator $domain 80 $publicPath
 
 # php
 sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
