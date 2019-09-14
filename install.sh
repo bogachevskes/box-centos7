@@ -9,9 +9,10 @@ php=php
 publicPath="/public"
 commonPath=$hostDir/common
 vhGenerator=generate-vhost
+serverRestarter=server-restart
 scriptPath=$hostDir/scripts
 vhScript=$scriptPath/$vhGenerator
-restartScript=$scriptPath/server-restart
+restartScriptPath=$scriptPath/$serverRestarter
 
 sudo mkdir $docRoot
 sudo mkdir -p $hostDir/html
@@ -19,11 +20,11 @@ sudo mkdir -p $hostDir/log
 sudo ln -s $hostDir/html $docRoot/html
 sudo ln -s $hostDir/log $docRoot/log
 sudo dos2unix $vhScript
-sudo dos2unix $restartScript
+sudo dos2unix $restartScriptPath
 sudo cp $vhScript $binPath
-sudo cp $restartScript $binPath
+sudo cp $restartScriptPath $binPath
 sudo chmod u+x $vhScript
-sudo chmod u+x $restartScript
+sudo chmod u+x $restartScriptPath
 
 sudo yum update -y
 
@@ -68,5 +69,4 @@ sudo systemctl start mariadb
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
 sudo cp /vagrant/common/conf/www.conf /etc/php-fpm.d/
-sudo service php-fpm restart
-sudo service httpd restart
+sudo $serverRestarter
