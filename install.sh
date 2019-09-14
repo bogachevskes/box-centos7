@@ -70,3 +70,8 @@ sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
 sudo cp $commonPath/conf/www.conf /etc/php-fpm.d/
 sudo $serverRestarter
+
+# autoload
+systemctl enable httpd
+systemctl enable mysql
+systemctl enable redis
