@@ -68,5 +68,5 @@ sudo systemctl start mariadb
 # fast-cgi
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
-sudo cp /vagrant/common/conf/www.conf /etc/php-fpm.d/
+sudo cp $commonPath/conf/www.conf /etc/php-fpm.d/
 sudo $serverRestarter
