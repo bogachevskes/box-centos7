@@ -73,5 +73,4 @@ sudo $serverRestarter
 
 # autoload
 sudo systemctl enable httpd
-sudo systemctl enable mysql
 sudo systemctl enable redis
