@@ -12,13 +12,23 @@ scriptPath=$hostDir/scripts
 vhGenerator=generate-vhost
 vhRemover=remove-vhost
 serverRestarter=server-restart
+installerRepos=/etc/yum.repos.d/
 
+sudo yum update -y
+
+echo "##### Generating common filesystems #####"
 sudo mkdir $docRoot
 sudo mkdir -p $hostDir/html
 sudo mkdir -p $hostDir/log
 sudo ln -s $hostDir/html $docRoot/html
 sudo ln -s $hostDir/log $docRoot/log
-sudo cp $scriptPath $binPath
+sudo cp -rf $scriptPath/* $binPath
+sudo cp -rf $commonPath/repo/* $installerRepos
+
+# common utils
+sudo yum install -y epel-release htop nano dos2unix net-tools
+
+# scripts init
 sudo dos2unix $binPath/$vhGenerator
 sudo dos2unix $scriptPath/$vhRemover
 sudo dos2unix $binPath/$serverRestarter
@@ -26,16 +36,10 @@ sudo chmod u+x $binPath/$vhGenerator
 sudo chmod u+x $binPath/$serverRestarter
 sudo chmod u+x $binPath/$serverRestarter
 
-sudo yum update -y
-
-# common utils
-sudo cp $commonPath/repo/dos2unix-6.0.3-7.el7.src.rpm /etc/yum.repos.d/
-sudo yum install -y epel-release htop nano dos2unix net-tools
-
 # apache
 sudo yum update -y
 sudo yum install -y httpd mod_fcgid
-sudo cp $commonPath/conf/httpd.conf $httpdPath/conf/httpd.conf
+sudo cp -rf $commonPath/conf/httpd.conf $httpdPath/conf/httpd.conf
 sudo mkdir $httpdPath/sites-available
 sudo mkdir $httpdPath/sites-enabled
 
@@ -54,21 +58,20 @@ sudo yum --enablerepo=remi install -y $php-opcache $php-mcrypt $php-fpm $php-int
 # imagick
 sudo yum install -y gcc php-devel php-pear ImageMagick ImageMagick-devel
 sudo pecl install imagick
-sudo cp $commonPath/ini/imagick.ini /etc/php.d/
+sudo cp -rf $commonPath/ini/imagick.ini /etc/php.d/
 
 # redis
 sudo yum install -y redis
 sudo systemctl start redis
 
 # mariaDB
-sudo cp $commonPath/repo/mariadb.repo /etc/yum.repos.d/
 sudo yum install -y MariaDB-server
 sudo systemctl start mariadb
 
 # fast-cgi
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
-sudo cp $commonPath/conf/www.conf /etc/php-fpm.d/
+sudo cp -rf $commonPath/conf/www.conf /etc/php-fpm.d/
 sudo $serverRestarter
 
 # autoload
