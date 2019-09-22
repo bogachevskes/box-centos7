@@ -27,5 +27,5 @@ $ sudo service mysqld restart
 Добавление виртуального хоста | домен | порт | публичная папка | php cli - по умолчанию php7.1
 ```sh
 $ vagrant ssh
-$ sudo generate-vhost host.example.com 80 "/public"
+$ sudo generate-vhost host.example.com 80 "public"
 ```
