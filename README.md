@@ -39,7 +39,7 @@ $ sudo remove-vhost host.example.com
 ```sh
 $ sudo server-restart
 ```
-Динамическая смена версии php в терминале | php версия
+Динамическая смена версии php в терминале | php версия ( 71 | 56 )
 ```sh
 $ sudo set-php 7
 ```
