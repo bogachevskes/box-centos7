@@ -1,4 +1,4 @@
-# CentOS 7 Box
+# Box CentOS 7
 > Host machine - Windows
 
 ### Сборка
