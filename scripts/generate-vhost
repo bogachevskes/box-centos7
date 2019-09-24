@@ -24,6 +24,13 @@ else
     php=$4
 fi
 
+if [ -z ${5} ]
+then
+    onReload=true
+else
+    onReload=false
+fi
+
 mkdir -p $hostHtmlPublicPath
 mkdir -p $hostLog
 
@@ -35,5 +42,11 @@ eval "echo \"$(cat /vagrant/templates/v-host.tpl)\"" > $siteConfig
 sudo ln -s $siteConfig $httpdPath/sites-enabled/$configFile
 sudo chown $apacheUser -R $htmlPath
 sudo chown $apacheUser -R $logPath
-sudo setenforce 0
-sudo server-restart
+
+if [ onReload == true ]
+then
+else
+    sudo server-restart
+fi
+
+echo "Added "$1" virtual host"

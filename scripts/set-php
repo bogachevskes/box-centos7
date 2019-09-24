@@ -1,7 +1,6 @@
 #!/bin/bash
 
 phpVersion=71
-phpPath=/usr/bin/php
 
 if [ -z ${1} ]
 then
@@ -14,6 +13,6 @@ then
 phpVersion=56
 fi
 
-sudo update-alternatives --set php $phpPath$phpVersion
+sudo update-alternatives --set php /opt/remi/php$phpVersion/root/usr/bin/php
 
-echo "php changed to "$phpPath$phpVersion
+echo "php changed to php"$phpVersion
