@@ -48,7 +48,7 @@ sudo mkdir $httpdPath/sites-enabled
 
 # template
 echo "##### Generating sites filesystems #####"
-sudo $vhGenerator $domain 80 $publicPath
+sudo $vhGenerator $domain 80 $publicPath false
 
 # php
 sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
