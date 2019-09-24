@@ -1,5 +1,5 @@
 # Box CentOS 7
-> Host machine - Windows
+> Host - Windows
 
 ### Сборка
 * CentOS 7
