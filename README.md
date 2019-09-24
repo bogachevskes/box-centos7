@@ -27,7 +27,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $ sudo service mysqld restart
 ```
-Добавление виртуального хоста | домен | порт | публичная папка | php версия ( 71 | 56 ) - по умолчанию 71
+Добавление виртуального хоста | домен | порт | публичная папка | php версия ( 56 | 71 ) - по умолчанию 71
 ```sh
 $ sudo generate-vhost host.example.com 80 "public" 71
 ```
@@ -39,7 +39,7 @@ $ sudo remove-vhost host.example.com
 ```sh
 $ sudo server-restart
 ```
-Динамическая смена версии php в терминале | php версия ( 71 | 56 )
+Динамическая смена версии php в терминале | php версия ( 5 | 7 ) по умолчанию 7
 ```sh
 $ sudo set-php 7
 ```
