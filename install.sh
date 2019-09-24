@@ -84,8 +84,8 @@ sudo yum install -y memcached redis MariaDB-server
 
 # autoload
 sudo systemctl enable httpd
-sudo systemctl enable php56-php-fpm
 sudo systemctl enable php71-php-fpm
+sudo systemctl enable php56-php-fpm
 sudo systemctl enable mariadb
 sudo systemctl enable redis
 sudo systemctl enable memcached
