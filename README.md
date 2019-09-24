@@ -4,8 +4,11 @@
 ### Сборка
 * CentOS 7
 * php7.1
+* php5.6
+* php5.4
 * Fast-cgi
 * Redis
+* Memcached
 * MariaDB10.4
 
 ### Установка
@@ -24,7 +27,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $ sudo service mysqld restart
 ```
-Добавление виртуального хоста | домен | порт | публичная папка | php cli - по умолчанию php7.1
+Добавление виртуального хоста | домен | порт | публичная папка | php версия (71|56) - по умолчанию 71
 ```sh
 $ vagrant ssh
 $ sudo generate-vhost host.example.com 80 "public"

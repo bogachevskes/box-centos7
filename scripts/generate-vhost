@@ -19,7 +19,7 @@ hostHtmlPublicPath=$hostHtml/$3
 
 if [ -z ${4} ]
 then
-    php=php
+    php=71
 else
     php=$4
 fi

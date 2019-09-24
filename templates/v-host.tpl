@@ -9,8 +9,8 @@
         Require all granted
     </Directory>
 
-    <FilesMatch \.php$>
-        SetHandler proxy:unix:/var/run/php-fpm/$php-fpm.sock|fcgi://localhost
-    </FilesMatch>
+  <FilesMatch \.php$>
+       SetHandler proxy:fcgi://127.0.0.1:90$php
+   </FilesMatch>
 
 </VirtualHost>

@@ -5,7 +5,11 @@ sudo service httpd restart
 echo "Apache restarted"
 sudo service mysqld restart
 echo "Mysql restarted"
-sudo service php-fpm restart
-echo "php-fpm restarted"
+sudo service php56-php-fpm restart
+echo "php56-php-fpm restarted"
+sudo service php71-php-fpm restart
+echo "php71-php-fpm restarted"
 sudo service redis restart
 echo "Redis restarted"
+sudo service memcached restart
+echo "Memcached restarted"
