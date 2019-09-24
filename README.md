@@ -27,8 +27,19 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $ sudo service mysqld restart
 ```
-Добавление виртуального хоста | домен | порт | публичная папка | php версия (71|56) - по умолчанию 71
+Добавление виртуального хоста | домен | порт | публичная папка | php версия ( 71 | 56 ) - по умолчанию 71
 ```sh
-$ vagrant ssh
-$ sudo generate-vhost host.example.com 80 "public"
+$ sudo generate-vhost host.example.com 80 "public" 71
+```
+Удаление виртуального хоста | домен
+```sh
+$ sudo remove-vhost host.example.com
+```
+Перезагрузка всех сервисов
+```sh
+$ sudo server-restart
+```
+Динамическая смена версии php в терминале | php версия
+```sh
+$ sudo set-php 7
 ```
