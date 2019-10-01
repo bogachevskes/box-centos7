@@ -14,6 +14,8 @@ serverRestarter=server-restart
 phpChanger=set-php
 installerRepos=/etc/yum.repos.d/
 
+sudo timedatectl set-timezone Europe/Moscow
+
 sudo yum update -y
 
 echo "##### Generating common filesystems #####"
