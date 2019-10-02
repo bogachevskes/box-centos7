@@ -7,6 +7,7 @@
 * php5.6
 * php5.4
 * Fast-cgi
+* Composer
 * Redis
 * Memcached
 * MariaDB10.4
