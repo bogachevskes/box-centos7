@@ -63,7 +63,7 @@ sudo yum install -y php56-php-intl php56-php-opcache php56-php-fpm \
     php56-php-gmp php56-php-imap php56-php-ldap php56-php-memcache \
     php56-php-xmlwriter php56-php-mcrypt php56-php-mbstring \
     php56-php-mysqli php56-php-imagick php56-php-memcached \
-    php56-php-soap php56-php-tidy php56-php-xmlrpc php56-php-zip
+    php56-php-soap php56-php-tidy php56-php-xmlrpc php56-php-zip php56-php-gd
 
 # extensions 7.1
 sudo yum install -y php71-php-opcache php71-php-mcrypt \
@@ -72,7 +72,7 @@ sudo yum install -y php71-php-opcache php71-php-mcrypt \
     php71-php-pdo_odbc php71-php-pdo_pgsql php71-php-redis \
     php71-php-redis php71-php-memcached php71-php-soap php71-php-tidy \
     php71-php-xmlrpc php71-php-zip php71-php-devel php71-php-pear \
-    php71-php-imagick
+    php71-php-imagick php71-php-gd
 
 # fast-cgi
 remiDir=/etc/opt/remi
