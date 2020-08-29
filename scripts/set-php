@@ -1,12 +1,12 @@
 #!/bin/bash
 
-phpVersion=71
-
 if [ -z ${1} ]
 then
 echo "Set php version"
 exit
 fi
+
+phpVersion=$1
 
 if [ $1 == 5 ]
 then

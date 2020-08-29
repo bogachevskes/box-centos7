@@ -56,7 +56,7 @@ sudo $vhGenerator $domain 80 $publicPath false
 # php
 sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 sudo yum -y update
-sudo yum -y install php php56 php71
+sudo yum -y install php php56 php71 php74
 
 # extensions 5.6
 sudo yum install -y php56-php-intl php56-php-opcache php56-php-fpm \
@@ -74,6 +74,15 @@ sudo yum install -y php71-php-opcache php71-php-mcrypt \
     php71-php-xmlrpc php71-php-zip php71-php-devel php71-php-pear \
     php71-php-imagick php71-php-gd
 
+# extensions 7.4
+sudo yum install -y php74-php-opcache php74-php-mcrypt \
+    php74-php-fpm php74-php-intl php74-php-gmp php74-php-imap \
+    php74-php-ldap php74-php-mbstring php74-php-mysqli \
+    php74-php-pdo_odbc php74-php-pdo_pgsql php74-php-redis \
+    php74-php-redis php74-php-memcached php74-php-soap php74-php-tidy \
+    php74-php-xmlrpc php74-php-zip php74-php-devel php74-php-pear \
+    php74-php-imagick php74-php-gd
+
 # fast-cgi
 remiDir=/etc/opt/remi
 fpmConf=php-fpm.d/www.conf
@@ -81,6 +90,7 @@ sudo systemctl stop php56-php-fpm
 sudo systemctl stop php71-php-fpm
 sudo sed -i 's/:9000/:9056/' $remiDir/php56/$fpmConf
 sudo sed -i 's/:9000/:9071/' $remiDir/php71/$fpmConf
+sudo sed -i 's/:9000/:9074/' $remiDir/php74/$fpmConf
 
 # Databases
 sudo yum install -y memcached redis MariaDB-server
@@ -97,7 +107,8 @@ sudo systemctl enable memcached
 phpPath=/usr/local/bin/php
 sudo update-alternatives --install $phpPath php /opt/remi/php56/root/usr/bin/php 10
 sudo update-alternatives --install $phpPath php /opt/remi/php71/root/usr/bin/php 20
-sudo update-alternatives --install $phpPath php /usr/bin/php 30
+sudo update-alternatives --install $phpPath php /opt/remi/php74/root/usr/bin/php 30
+sudo update-alternatives --install $phpPath php /usr/bin/php 40
 
 sudo set-php 7
 php -v
