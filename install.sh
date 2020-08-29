@@ -88,6 +88,7 @@ remiDir=/etc/opt/remi
 fpmConf=php-fpm.d/www.conf
 sudo systemctl stop php56-php-fpm
 sudo systemctl stop php71-php-fpm
+sudo systemctl stop php74-php-fpm
 sudo sed -i 's/:9000/:9056/' $remiDir/php56/$fpmConf
 sudo sed -i 's/:9000/:9071/' $remiDir/php71/$fpmConf
 sudo sed -i 's/:9000/:9074/' $remiDir/php74/$fpmConf
@@ -97,8 +98,9 @@ sudo yum install -y memcached redis MariaDB-server
 
 # autoload
 sudo systemctl enable httpd
-sudo systemctl enable php71-php-fpm
 sudo systemctl enable php56-php-fpm
+sudo systemctl enable php71-php-fpm
+sudo systemctl enable php74-php-fpm
 sudo systemctl enable mariadb
 sudo systemctl enable redis
 sudo systemctl enable memcached
