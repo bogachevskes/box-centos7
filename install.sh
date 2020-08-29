@@ -110,7 +110,7 @@ sudo update-alternatives --install $phpPath php /opt/remi/php71/root/usr/bin/php
 sudo update-alternatives --install $phpPath php /opt/remi/php74/root/usr/bin/php 30
 sudo update-alternatives --install $phpPath php /usr/bin/php 40
 
-sudo set-php 7
+sudo set-php 71
 php -v
 
 # composer
