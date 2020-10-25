@@ -9,6 +9,8 @@ sudo service php56-php-fpm restart
 echo "php56-php-fpm restarted"
 sudo service php71-php-fpm restart
 echo "php71-php-fpm restarted"
+sudo service php74-php-fpm restart
+echo "php74-php-fpm restarted"
 sudo service redis restart
 echo "Redis restarted"
 sudo service memcached restart
