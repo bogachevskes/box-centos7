@@ -129,6 +129,7 @@ sudo systemctl unmask firewalld
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
 sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=443/tcp
 sudo firewall-cmd --reload
 
 echo "##### Server installed #####"
