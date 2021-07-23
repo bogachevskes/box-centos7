@@ -63,7 +63,7 @@ sudo yum install -y php56-php-intl php56-php-opcache php56-php-fpm \
     php56-php-gmp php56-php-imap php56-php-ldap php56-php-memcache \
     php56-php-xmlwriter php56-php-mcrypt php56-php-mbstring \
     php56-php-mysqli php56-php-imagick php56-php-memcached \
-    php56-php-soap php56-php-tidy php56-php-xmlrpc php56-php-zip php56-php-gd
+    php56-php-soap php56-php-tidy php56-php-xmlrpc php56-php-zip php56-php-gd php56-php-pdo_dblib
 
 # extensions 7.1
 sudo yum install -y php71-php-opcache php71-php-mcrypt \
@@ -72,7 +72,7 @@ sudo yum install -y php71-php-opcache php71-php-mcrypt \
     php71-php-pdo_odbc php71-php-pdo_pgsql php71-php-redis \
     php71-php-redis php71-php-memcached php71-php-soap php71-php-tidy \
     php71-php-xmlrpc php71-php-zip php71-php-devel php71-php-pear \
-    php71-php-imagick php71-php-gd
+    php71-php-imagick php71-php-gd php71-php-pdo_dblib
 
 # extensions 7.4
 sudo yum install -y php74-php-opcache php74-php-mcrypt \
@@ -81,7 +81,7 @@ sudo yum install -y php74-php-opcache php74-php-mcrypt \
     php74-php-pdo_odbc php74-php-pdo_pgsql php74-php-redis \
     php74-php-redis php74-php-memcached php74-php-soap php74-php-tidy \
     php74-php-xmlrpc php74-php-zip php74-php-devel php74-php-pear \
-    php74-php-imagick php74-php-gd
+    php74-php-imagick php74-php-gd php74-php-pdo_dblib
 
 # fast-cgi
 remiDir=/etc/opt/remi
