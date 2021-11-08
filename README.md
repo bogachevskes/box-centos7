@@ -18,16 +18,6 @@
 ```sh
 $ vagrant plugin install vagrant-vbguest
 ```
-### Опционально
-Открытие доступа к БД из host
-```sh
-$ sudo mysql -u root
-mysql> DROP USER 'root'@'localhost'; CREATE USER 'root'@'%' IDENTIFIED BY '';
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-mysql> FLUSH PRIVILEGES;
-mysql> exit
-$ sudo service mysqld restart
-```
 Добавление виртуального хоста | домен | порт | публичная папка | php версия ( 56 | 71 ) - по умолчанию 71
 ```sh
 $ sudo generate-vhost host.example.com 80 "public" 71
