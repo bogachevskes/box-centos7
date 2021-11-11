@@ -45,7 +45,6 @@ sudo chown $apacheUser -R $logPath
 
 if [ onReload == true ]
 then
-else
     sudo server-restart
 fi
 
