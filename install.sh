@@ -70,7 +70,7 @@ sudo yum install -y php71-php-opcache php71-php-mcrypt \
     php71-php-fpm php71-php-intl php71-php-gmp php71-php-imap \
     php71-php-ldap php71-php-mbstring php71-php-mysqli \
     php71-php-pdo_odbc php71-php-pdo_pgsql php71-php-redis \
-    php71-php-redis php71-php-memcached php71-php-soap php71-php-tidy \
+    php71-php-memcached php71-php-soap php71-php-tidy \
     php71-php-xmlrpc php71-php-zip php71-php-devel php71-php-pear \
     php71-php-imagick php71-php-gd php71-php-pdo_dblib
 
@@ -79,7 +79,7 @@ sudo yum install -y php74-php-opcache php74-php-mcrypt \
     php74-php-fpm php74-php-intl php74-php-gmp php74-php-imap \
     php74-php-ldap php74-php-mbstring php74-php-mysqli \
     php74-php-pdo_odbc php74-php-pdo_pgsql php74-php-redis \
-    php74-php-redis php74-php-memcached php74-php-soap php74-php-tidy \
+    php74-php-memcached php74-php-soap php74-php-tidy \
     php74-php-xmlrpc php74-php-zip php74-php-devel php74-php-pear \
     php74-php-imagick php74-php-gd php74-php-pdo_dblib
 
