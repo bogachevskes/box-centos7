@@ -38,7 +38,7 @@ sudo dos2unix $binPath/$vhRemover
 sudo dos2unix $binPath/$serverRestarter
 sudo dos2unix $binPath/$phpChanger
 sudo chmod u+x $binPath/$vhGenerator
-sudo chmod u+x $binPath/$serverRestarter
+sudo chmod u+x $binPath/$vhRemover
 sudo chmod u+x $binPath/$serverRestarter
 sudo chmod u+x $binPath/$phpChanger
 
